@@ -1,0 +1,22 @@
+version: 1
+creator: xdebug 3.2.0 (PHP 8.3.6)
+cmd: /var/www/html/phpinfo.php
+part: 1
+positions: line
+
+events: Time_(10ns) Memory_(bytes)
+
+fl=(1) php:internal
+fn=(1) php::phpinfo
+4 1275225 128
+
+fl=(2) /var/www/html/phpinfo.php
+fn=(2) {main}
+1 68323 32
+cfl=(1)
+cfn=(1)
+calls=1 0 0
+4 1275225 128
+
+summary: 1351233 437928
+
