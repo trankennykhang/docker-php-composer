@@ -9,13 +9,15 @@ RUN echo "tzdata tzdata/Areas select Australia" > /tmp/preseed.txt; \
     apt-get update && \
     apt-get install -y tzdata
 
-RUN apt install -y php php-zip php-mysqlnd php-soap php-intl php-opcache php-xdebug
+RUN apt install -y php php-zip php-mysqlnd php-soap php-intl php-opcache php-xdebug php-curl
+RUN apt install -y php-xml
 RUN apt install -y apache2
 #RUN apt intsall -y libapache2-mod-proxy
 #RUN apt install -y libapache2-mod-proxy-fcgi
+# Install composer
+COPY composer /usr/local/bin/
 RUN a2enmod proxy proxy_fcgi
 #RUN a2dismod php8.3
-COPY ./test.conf /etc/apache2/site-enabled/
 RUN mkdir /xdebug_logs
 RUN chmod 777 /xdebug_logs
 COPY xdebug.ini /etc/php/8.3/apache2/conf.d/20-xdebug.ini
