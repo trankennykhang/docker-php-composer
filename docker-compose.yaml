@@ -5,7 +5,7 @@ services:
         #host:container port
       - "8011:80"
     volumes:
-      - ../:/var/www/html
+      - ../../php/laravel-playground:/var/www/html
       - ./php/test.conf:/etc/apache2/sites-enabled/test.conf
       - ./php/xdebug_log:/xdebug_logs
     extra_hosts:
@@ -20,7 +20,7 @@ services:
         ipv4_address: 172.16.2.10
 
   web-php-fpm:
-    build: docker/php-fpm/.
+    build: ./php-fpm/.
     ports:
         #host:container port
       - "8010:80"
